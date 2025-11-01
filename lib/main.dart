@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:groww_app_design/screens/explore_screen.dart';
+import 'package:groww_app_design/screens/home_screen.dart';
 
 void main() {
   runApp(GrowwApp());
@@ -15,7 +15,7 @@ class GrowwApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "flutter",
       theme: _buildTheme(Brightness.light), //by default code for font pakage
-      home: ExploreScreen(),
+      home: HomeScreen(),
     );
   }
 }
