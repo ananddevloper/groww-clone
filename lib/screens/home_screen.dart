@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:groww_app_design/screens/all_list_view.dart';
-import 'package:groww_app_design/screens/explore_view.dart';
-import 'package:groww_app_design/screens/holding_view.dart';
-import 'package:groww_app_design/screens/order_view.dart';
-import 'package:groww_app_design/screens/position_view.dart';
-import 'package:groww_app_design/screens/watchlist_view.dart';
+import 'package:groww_app_design/screens/futureandoptioin_view.dart';
+import 'package:groww_app_design/screens/loans_view.dart';
+import 'package:groww_app_design/screens/mutual_fund_view.dart';
+import 'package:groww_app_design/screens/stock_screen.dart';
+import 'package:groww_app_design/screens/upi_view.dart';
 import 'package:groww_app_design/utils/app_colors.dart';
 import 'package:groww_app_design/utils/app_image.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,108 +14,47 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentindex = 1;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    super.initState();
-    _tabController = TabController(length: 6, vsync: this);
-  }
-
+  final List<Widget> _bottomScreen = [
+    const StockContaintScreen(),
+     FutureScreen(),
+    const MutualFundScreen(),
+    const UpiScreen(),
+    const LoansScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar(),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 55,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      indexsummery(
-                        title: "NIFTY 50",
-                        price: '25,877.85',
-                        percentagechange: '-176.05(0.68%)',
-                      ),
-                      SizedBox(width: 18),
-                      indexsummery(
-                        title: 'SENSEX',
-                        price: '84,404.46',
-                        percentagechange: '-592.67(-592.67)',
-                      ),
-                      SizedBox(width: 18),
-                      indexsummery(
-                        title: 'BANK NIFTY',
-                        price: '58,031.10',
-                        percentagechange: '-354.15(0.61%)',
-                      ),
-                      SizedBox(width: 18),
-                      indexsummery(
-                        title: 'ALL Indices',
-                        price: '50',
-                        percentagechange: '543(1%)',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+      body: _bottomScreen[_currentindex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentindex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        onTap: (index) {
+          setState(() {
+            _currentindex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.trending_up),
+            label: 'Stocks',
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TabBar(
-              controller: _tabController,
-              isScrollable: true,
-              padding: EdgeInsets.zero, // 👈 Removes the built-in side padding
-              labelPadding: EdgeInsets.only(
-                right: 16,
-              ), // 👈 Controls spacing between tabs
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey,
-              indicatorColor: Colors.black,
-              indicatorWeight: 1,
-              tabs: const [
-                Tab(text: "Explore"),
-                Tab(text: "Holdings"),
-                Tab(text: "Position"),
-                Tab(text: "Order"),
-                Tab(text: "Watchlist"),
-                Tab(text: "All Watchlist"),
-              ],
-            ),
+          BottomNavigationBarItem(icon: Icon(Icons.image), label: 'F&O'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pie_chart),
+            label: 'Mutual Funds',
           ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                ExploreWidget(),
-                HoldingWidget(),
-                PositionWidget(),
-                OrderWidget(),
-                WatchlistWidget(),
-                AllListWidget(),
-              ],
-            ),
+          BottomNavigationBarItem(icon: Icon(Icons.double_arrow), label: 'UPI'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet_outlined),
+            label: 'Loans',
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [],
-        ),
       ),
     );
   }
@@ -128,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
       title: Row(
         children: [
           Image.asset(AppImage.logo, height: 30, width: 30),
+
           SizedBox(width: 13),
           Text(
             'Stocks',
@@ -138,7 +76,10 @@ class _HomeScreenState extends State<HomeScreen>
       actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 21)),
         IconButton(onPressed: () {}, icon: Icon(Icons.qr_code, size: 21)),
-        CircleAvatar(child: Icon(Icons.person)),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: CircleAvatar(child: Image.asset(AppImage.profileimage)),
+        ),
       ],
     );
   }

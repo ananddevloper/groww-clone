@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:groww_app_design/utils/app_colors.dart';
-import 'package:groww_app_design/utils/app_icon.dart';
-import 'package:groww_app_design/utils/app_image.dart';
 
 class WatchlistWidget extends StatelessWidget {
   final List<Map<String, dynamic>> watchlistStocks = [
