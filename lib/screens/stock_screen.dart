@@ -82,11 +82,10 @@ class _StockContaintScreenState extends State<StockContaintScreen>
             indicatorColor: Colors.black,
             indicatorWeight: 1,
             tabs: const [
-              Tab(text: "Order"),
               Tab(text: "Explore"),
               Tab(text: "Holdings"),
               Tab(text: "Position"),
-
+              Tab(text: "Order"),
               Tab(text: "Watchlist"),
               Tab(text: "All Watchlist"),
             ],
@@ -96,11 +95,10 @@ class _StockContaintScreenState extends State<StockContaintScreen>
           child: TabBarView(
             controller: _tabController,
             children: [
-              OrderWidget(),
               ExploreWidget(),
               HoldingWidget(),
               PositionWidget(),
-
+              OrderWidget(),
               WatchlistWidget(),
               AllListWidget(),
             ],
@@ -115,41 +113,39 @@ class _StockContaintScreenState extends State<StockContaintScreen>
     required String price,
     required String percentagechange,
   }) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.all(11),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade300),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
-                color: AppColors.blackMedium,
+    return Container(
+      padding: EdgeInsets.all(11),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade300),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w600,
+              color: AppColors.blackMedium,
+            ),
+          ),
+          SizedBox(height: 3),
+          Row(
+            spacing: 10,
+            children: [
+              Text(
+                price,
+                style: TextStyle(color: AppColors.blackMedium, fontSize: 9),
               ),
-            ),
-            SizedBox(height: 3),
-            Row(
-              spacing: 10,
-              children: [
-                Text(
-                  price,
-                  style: TextStyle(color: AppColors.blackMedium, fontSize: 9),
-                ),
-
-                Text(
-                  percentagechange,
-                  style: TextStyle(color: AppColors.redMedium, fontSize: 9),
-                ),
-              ],
-            ),
-          ],
-        ),
+    
+              Text(
+                percentagechange,
+                style: TextStyle(color: AppColors.redMedium, fontSize: 9),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -13,7 +13,7 @@ class GrowwApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "flutter",
+      title: "Groww",
       theme: _buildTheme(Brightness.light), //by default code for font pakage
       home: HomeScreen(),
     );
