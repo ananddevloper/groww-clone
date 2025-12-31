@@ -268,10 +268,11 @@ class ExploreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,          
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 12.0, right: 12.0),
@@ -281,9 +282,7 @@ class ExploreWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8),
-
             mostBought(),
-
             SizedBox(height: 20),
             productandtools(),
             SizedBox(height: 15),
@@ -291,7 +290,6 @@ class ExploreWidget extends StatelessWidget {
             SizedBox(height: 18),
             Topmovers(),
             SizedBox(height: 10),
-
             intraday(),
             SizedBox(height: 15),
             Text(

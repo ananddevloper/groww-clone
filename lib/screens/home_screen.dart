@@ -25,10 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: appBar(logo: 'assets/images/groww.webp'),
-
       body: _bottomScreen[_currentindex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentindex,

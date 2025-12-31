@@ -17,7 +17,7 @@ class LoansScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InkWell(
+            InkWell( ///////////////
               onTap: () {
                 Navigator.push(
                   context,

@@ -41,27 +41,22 @@ class _StockContaintScreenState extends State<StockContaintScreen>
                   children: [
                     indexsummery(
                       title: "NIFTY 50",
-                      price: '25,877.85',
-                      percentagechange: '-176.05(0.68%)',
+                      price: '25,884.80',
+                      percentagechange: '-74.70(0.29%)',
                     ),
                     SizedBox(width: 18),
                     indexsummery(
                       title: 'SENSEX',
-                      price: '84,404.46',
-                      percentagechange: '-592.67(-592.67)',
+                      price: '84,587.01',
+                      percentagechange: '-313.70(0.37%)',
                     ),
                     SizedBox(width: 18),
                     indexsummery(
                       title: 'BANK NIFTY',
-                      price: '58,031.10',
-                      percentagechange: '-354.15(0.61%)',
+                      price: '58,820.30',
+                      percentagechange: '-15.05(0.03%)',
                     ),
-                    SizedBox(width: 18),
-                    indexsummery(
-                      title: 'ALL Indices',
-                      price: '50',
-                      percentagechange: '543(1%)',
-                    ),
+                    
                   ],
                 ),
               ),
@@ -84,10 +79,10 @@ class _StockContaintScreenState extends State<StockContaintScreen>
             tabs: const [
               Tab(text: "Explore"),
               Tab(text: "Holdings"),
-              Tab(text: "Position"),
-              Tab(text: "Order"),
-              Tab(text: "Watchlist"),
-              Tab(text: "All Watchlist"),
+              Tab(text: "Positions"),
+              Tab(text: "Orders"),
+              Tab(text: "Watchlists"),
+              Tab(text: "All Watchlists"),
             ],
           ),
         ),
@@ -114,6 +109,7 @@ class _StockContaintScreenState extends State<StockContaintScreen>
     required String percentagechange,
   }) {
     return Container(
+      
       padding: EdgeInsets.all(11),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),

@@ -38,7 +38,7 @@ class Inatenthasal extends StatelessWidget {
               SizedBox(height: 15),
 
               /// ✅ Box 1
-              getpersonalloan(),
+              getpersonalloan(), /// 
 
               SizedBox(height: 15),
 

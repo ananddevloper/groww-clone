@@ -7,162 +7,121 @@ import 'package:groww_app_design/utils/app_icon.dart';
 class PositionWidget extends StatelessWidget {
   PositionWidget({super.key});
 
-  final List<Map<String, dynamic>> positionWidget = [
-    {
-      'positionshareimage':
-          'https://assets-netstorage.groww.in/stock-assets/logos2/EPACKPEB1.png',
-      'positionsharename': 'EPack Prefab Technologies',
-      'positionshareprice': '₹295.60',
-      'positionshareper': '+36.98 (14.30%)',
-      'positionbar': true,
-    },
-    {
-      'positionshareimage':
-          'https://assets-netstorage.groww.in/stock-assets/logos2/VINTAGECOFFEE.png',
-      'positionsharename': 'Vintage Cpffee and Beverages',
-      'positionshareprice': '₹166.71',
-      'positionshareper': '+2.87 (1.75%)',
-      'positionbar': true,
-    },
-    {
-      'positionshareimage':
-          'https://assets-netstorage.groww.in/stock-assets/logos2/WOCKPHARMA.webp',
-      'positionsharename': 'Wockhardt',
-      'positionshareprice': '₹1,413.80',
-      'positionshareper': '+132.30 (10.32%)',
-      'positionbar': true,
-    },
-    {
-      'positionshareimage':
-          'https://assets-netstorage.groww.in/stock-assets/logos2/AURIONPRO.webp',
-      'positionsharename': 'Aurionpro Solutions',
-      'positionshareprice': '₹1,217.40',
-      'positionshareper': '+10.20 (0.84%)',
-      'positionbar': true,
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-            Center(child: SvgPicture.asset(AppIcon.logo)),
-            SizedBox(height: 10),
-            Center(
-              child: Text(
-                'No open equity intraday or MTF position',
-                style: TextStyle(fontSize: 20, color: AppColors.greyMedium),
-              ),
-            ),
-            SizedBox(height: 15),
-            Text(
-              'Price change > 1%',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 20),
             Row(
               children: [
-                priceMenites(time: '5 mins'),
-                SizedBox(width: 10),
-                priceMenites(time: '15 mins'),
-                SizedBox(width: 10),
-                priceMenites(time: '1 hour'),
+                Expanded(
+                  child: Text(
+                    'Equity Intraday positions (1)',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Icon(Icons.expand_less)
               ],
             ),
-            SizedBox(height: 20),
-            GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
+            SizedBox(height: 15),
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: AppColors.borderGreyColor, width: 1),
+                boxShadow: [BoxShadow(color: Colors.grey)],
               ),
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return positionpricechange(
-                  positionshareimage:
-                      positionWidget[index]['positionshareimage'],
-                  positionsharename: positionWidget[index]['positionsharename'],
-                  positionshareprice:
-                      positionWidget[index]['positionshareprice'],
-                  positionshareper: positionWidget[index]['positionshareper'],
-                  positionbar: positionWidget[index]['positionbar'],
-                );
-              },
-            ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Total returns',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: AppColors.greyMedium,
+                          ),
+                        ),
+                        SizedBox(height: 3),
+                        Text(
+                          '+₹846.70',
+                          style: TextStyle(
+                            color: AppColors.greenMedium,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
 
-            SizedBox(height: 20),
-            FotterWidget(),
+                        /// Right side (Exide all)
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.exit_to_app,
+                        size: 22,
+                        color: AppColors.greyMedium,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        'Exit all',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.greyMedium,
+                          decoration: TextDecoration.underline,                          
+                          decorationStyle: TextDecorationStyle.dotted,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 25),
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(child: Text('Intraday',style: TextStyle(color: AppColors.greyMedium),)),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 13,vertical: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          color: Colors.grey.shade50,
+                        ),
+                        child: Text(
+                          '0',
+                          style: TextStyle(
+                            
+                            color: AppColors.greyMedium,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(children: [
+                    Expanded(child: Text('Camline Fine Sciences',style: TextStyle(fontSize: 15,color: AppColors.greyMedium),)),
+                    Text('+₹846.70',style: TextStyle(fontWeight: FontWeight.w600,color: AppColors.greyMedium),)
+                  ],),
+                  Row(children: [
+                    Expanded(child: Text('Avg ₹0.00 ',style: TextStyle(color: AppColors.greyMedium,fontWeight: FontWeight.w200),)),
+                    Text('Mkt ₹163.84',style: TextStyle(fontSize: 15,color: AppColors.greyMedium),)
+                  ],)
+                ],
+              ),
+            ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget priceMenites({required String time}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.borderGreyColor),
-        borderRadius: BorderRadius.circular(80),
-      ),
-      child: Text(
-        time,
-        style: TextStyle(
-          fontSize: 14,
-          color: AppColors.blackMedium,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
-
-  Widget positionpricechange({
-    required String positionshareimage,
-    required String positionsharename,
-    required String positionshareprice,
-    required String positionshareper,
-    required bool positionbar,
-  }) {
-    return Container(
-      padding: EdgeInsets.all(23),
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.borderGreyColor),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(positionshareimage, height: 23, width: 23),
-          ),
-          SizedBox(height: 8),
-          Text(positionsharename, style: TextStyle(fontSize: 13)),
-          Spacer(),
-          Text(
-            positionshareprice,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: AppColors.blackMedium,
-            ),
-          ),
-          SizedBox(height: 3),
-          Text(
-            positionshareper,
-            style: TextStyle(
-              fontSize: 13,
-              color: positionbar ? AppColors.greenMedium : AppColors.redMedium,
-            ),
-          ),
-        ],
       ),
     );
   }

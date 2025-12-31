@@ -176,7 +176,7 @@ class HoldingWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '₹15,127.01',
+                            '₹5000.59',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -234,9 +234,9 @@ class HoldingWidget extends StatelessWidget {
                         ),
                         SizedBox(width: 8),
                         Text(
-                          '-111.58 (0.78%)',
+                          '+5000 (10%)',
                           style: TextStyle(
-                            color: AppColors.redMedium,
+                            color: AppColors.greenMedium,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -253,7 +253,7 @@ class HoldingWidget extends StatelessWidget {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          '+740.10 (5.14%)',
+                          '+740.10 (10%)',
                           style: TextStyle(
                             color: AppColors.greenMedium,
                             fontWeight: FontWeight.w600,

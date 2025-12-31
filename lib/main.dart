@@ -11,16 +11,19 @@ class GrowwApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Groww",
       theme: _buildTheme(Brightness.light), //by default code for font pakage
-      home: HomeScreen(),
+      home: HomeScreen(
+      ),
     );
   }
 }
 
 ThemeData _buildTheme(Brightness brightness) {
+  
   final ThemeData baseTheme = ThemeData(brightness: brightness);
 
   return baseTheme.copyWith(

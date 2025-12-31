@@ -46,8 +46,8 @@ class _MutualFundScreenState extends State<MutualFundScreen>
             tabs: const [
               Tab(text: "Explore"),
               Tab(text: "Holdings"),
-              Tab(text: "Position"),
-              Tab(text: "Order"),
+              Tab(text: "Positions"),
+              Tab(text: "Orders"),
               Tab(text: "Watchlist"),
               Tab(text: "All Watchlist"),
             ],
